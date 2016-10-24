@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        stackView.distribution = .fillEqually
+//        stackView.distribution = .fillProportionally
         
         // Prepare stack view
         for day in 1..<7 {
@@ -23,9 +23,9 @@ class ViewController: UIViewController {
                 UITapGestureRecognizer(target: self, action:#selector(hideStackedView(_:)))
             )
             
-            view.addGestureRecognizer(
-                UILongPressGestureRecognizer(target: self, action: #selector(hideCompleteView(_:)))
-            )
+//            view.addGestureRecognizer(
+//                UILongPressGestureRecognizer(target: self, action: #selector(hideCompleteView(_:)))
+//            )
             
             stackView.addArrangedSubview(view)
         }
@@ -47,17 +47,36 @@ class ViewController: UIViewController {
     }
 
     func hideStackedView(_ sender: UITapGestureRecognizer) {
-        guard let subView = sender.view?.subviews.first else {
+        guard let labelView = sender.view as? LabelView else {
             return
         }
         
-        UIView.animate(withDuration: 0.5) { [unowned self] in
-            subView.isHidden = !subView.isHidden
-            self.stackView.layoutIfNeeded()
-        }
+        UIView.animate(withDuration: 1, delay: 0,
+                       options: UIViewAnimationOptions.transitionCurlDown,
+                       animations: { [unowned self] in
+                        labelView.subtitleEnabled = !labelView.subtitleEnabled
+                        self.stackView.layoutIfNeeded()
+                        
+            }, completion: nil)
+//        UIView.animate(withDuration: 0.5) { [unowned self] in
+////            subView.isHidden = !subView.isHidden
+//            labelView.subtitleEnabled = !labelView.subtitleEnabled
+////            labelView.layoutIfNeeded()
+//////            sender.view?.layoutSubviews()
+//            self.stackView.layoutIfNeeded()
+//        }
     }
 
-    func createStackedElement(_ text: String) -> UIView {
+    func createStackedElement(_ text: String) -> LabelView {
+        let view = LabelView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .gray
+        view.title = text
+        
+        return view
+    }
+    
+    func _createStackedElement(_ text: String) -> UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .gray
@@ -66,7 +85,8 @@ class ViewController: UIViewController {
         label1.text = text
         label1.translatesAutoresizingMaskIntoConstraints = false
         label1.backgroundColor = .green
-        label1.isHidden = arc4random() % 2 == 0  // Randomly hide subtitle
+//        label1.isHidden = arc4random() % 2 == 0  // Randomly hide subtitle
+        label1.isHidden = true
         view.addSubview(label1)
         
         let label2 = UILabel()
@@ -86,7 +106,7 @@ class ViewController: UIViewController {
                 options: .directionLeadingToTrailing, metrics: nil , views: views))
         view.addConstraints(
             NSLayoutConstraint.constraints(
-                withVisualFormat: "|[label1]|",
+                withVisualFormat: "|[label1]-(0@100)-|",
                 options: .directionLeadingToTrailing, metrics: nil , views: views))
         view.addConstraints(
             NSLayoutConstraint.constraints(

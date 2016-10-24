@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		144443621DBE1F78006233CB /* LabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144443611DBE1F78006233CB /* LabelView.xib */; };
+		144443641DBE1F83006233CB /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144443631DBE1F83006233CB /* LabelView.swift */; };
 		14B37AA81DAFEFF500901273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B37AA71DAFEFF500901273 /* AppDelegate.swift */; };
 		14B37AAA1DAFEFF500901273 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B37AA91DAFEFF500901273 /* ViewController.swift */; };
 		14B37AAD1DAFEFF500901273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B37AAB1DAFEFF500901273 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		144443611DBE1F78006233CB /* LabelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelView.xib; sourceTree = "<group>"; };
+		144443631DBE1F83006233CB /* LabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		14B37AA41DAFEFF500901273 /* StackViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B37AA71DAFEFF500901273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14B37AA91DAFEFF500901273 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 				14B37AAE1DAFEFF500901273 /* Assets.xcassets */,
 				14B37AB01DAFEFF500901273 /* LaunchScreen.storyboard */,
 				14B37AB31DAFEFF500901273 /* Info.plist */,
+				144443611DBE1F78006233CB /* LabelView.xib */,
+				144443631DBE1F83006233CB /* LabelView.swift */,
 			);
 			path = StackViews;
 			sourceTree = "<group>";
@@ -125,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14B37AB21DAFEFF500901273 /* LaunchScreen.storyboard in Resources */,
+				144443621DBE1F78006233CB /* LabelView.xib in Resources */,
 				14B37AAF1DAFEFF500901273 /* Assets.xcassets in Resources */,
 				14B37AAD1DAFEFF500901273 /* Main.storyboard in Resources */,
 			);
@@ -139,6 +146,7 @@
 			files = (
 				14B37AAA1DAFEFF500901273 /* ViewController.swift in Sources */,
 				14B37AA81DAFEFF500901273 /* AppDelegate.swift in Sources */,
+				144443641DBE1F83006233CB /* LabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +310,7 @@
 				14B37AB81DAFEFF500901273 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

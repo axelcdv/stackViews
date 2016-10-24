@@ -19,14 +19,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BZb-9T-Mhc"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MtH-px-Kim">
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BZb-9T-Mhc">
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="100" id="kQR-lK-Run"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="BZb-9T-Mhc" secondAttribute="trailing" id="391-tV-Ps6"/>
+                                    <constraint firstItem="BZb-9T-Mhc" firstAttribute="leading" secondItem="MtH-px-Kim" secondAttribute="leading" id="JYk-MN-LYz"/>
+                                    <constraint firstItem="BZb-9T-Mhc" firstAttribute="width" secondItem="MtH-px-Kim" secondAttribute="width" id="QVR-60-IfN"/>
+                                    <constraint firstAttribute="bottom" secondItem="BZb-9T-Mhc" secondAttribute="bottom" id="Z8D-wY-AIU"/>
+                                    <constraint firstItem="BZb-9T-Mhc" firstAttribute="top" secondItem="MtH-px-Kim" secondAttribute="top" id="e2m-Hw-A4m"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="BZb-9T-Mhc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="6lH-g8-NI5"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BZb-9T-Mhc" secondAttribute="bottom" id="SqY-zY-dF5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BZb-9T-Mhc" secondAttribute="trailing" constant="-16" id="itP-YE-4qa"/>
-                            <constraint firstItem="BZb-9T-Mhc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="vqe-2u-a7X"/>
+                            <constraint firstAttribute="trailing" secondItem="MtH-px-Kim" secondAttribute="trailing" id="FYZ-3V-J0o"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="MtH-px-Kim" secondAttribute="bottom" id="OqA-ck-YGk"/>
+                            <constraint firstItem="MtH-px-Kim" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Oyt-9e-omZ"/>
+                            <constraint firstItem="MtH-px-Kim" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Q08-rj-Ian"/>
                         </constraints>
                     </view>
                     <connections>
