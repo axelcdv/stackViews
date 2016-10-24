@@ -51,13 +51,15 @@ class ViewController: UIViewController {
             return
         }
         
-        UIView.animate(withDuration: 1, delay: 0,
-                       options: UIViewAnimationOptions.transitionCurlDown,
-                       animations: { [unowned self] in
-                        labelView.subtitleEnabled = !labelView.subtitleEnabled
-                        self.stackView.layoutIfNeeded()
-                        
-            }, completion: nil)
+        labelView.subtitleEnabled = !labelView.subtitleEnabled
+        
+//        UIView.animate(withDuration: 1, delay: 0,
+//                       options: UIViewAnimationOptions.transitionCurlDown,
+//                       animations: { [unowned self] in
+//                        labelView.subtitleEnabled = !labelView.subtitleEnabled
+//                        self.stackView.layoutIfNeeded()
+//                        
+//            }, completion: nil)
 //        UIView.animate(withDuration: 0.5) { [unowned self] in
 ////            subView.isHidden = !subView.isHidden
 //            labelView.subtitleEnabled = !labelView.subtitleEnabled

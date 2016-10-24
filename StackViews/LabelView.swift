@@ -33,12 +33,14 @@ class LabelView: UIView {
     var subtitleEnabled = false {
         didSet {
             if subtitleEnabled {
-                removeConstraints(titleConstraints)
                 createSubtitleView()
             } else {
-                subtitleView?.removeFromSuperview()
-                subtitleView = nil
-                addConstraints(titleConstraints)
+                self.subtitleView?.removeFromSuperview()
+                self.subtitleView = nil
+                self.addConstraints(self.titleConstraints)
+                self.layoutIfNeeded()
+//                UIView.animate(withDuration: 0.5) { [unowned self] in
+//                }
             }
         }
     }
@@ -48,6 +50,8 @@ class LabelView: UIView {
         label2.text = "\(title) subtitle"
         label2.translatesAutoresizingMaskIntoConstraints = false
         label2.backgroundColor = .red
+        label2.numberOfLines = 0
+//        label2.isHidden = true
         subtitleView = label2
         self.addSubview(label2)
         
@@ -55,15 +59,35 @@ class LabelView: UIView {
             "title": titleView!,
             "subtitle": label2
         ]
+        self.removeConstraints(self.titleConstraints)
         
-        self.addConstraints(
-            NSLayoutConstraint.constraints(
-                withVisualFormat: "V:[title]-(5)-[subtitle]|",
-                options: .directionLeadingToTrailing, metrics: nil , views: views))
+        label2.sizeToFit()
+        let height = label2.frame.height
+        sendSubview(toBack: label2)
+        
         self.addConstraints(
             NSLayoutConstraint.constraints(
                 withVisualFormat: "|[subtitle]|",
                 options: .directionLeadingToTrailing, metrics: nil , views: views))
+        
+        let verticalConstraints =
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "V:[title]-(height)-[subtitle]|",
+                options: .directionLeadingToTrailing, metrics: ["height": -height], views: views)
+        
+        self.addConstraints(verticalConstraints)
+        self.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.5) { [unowned self] in
+//            self.subtitleView?.isHidden = false
+            self.removeConstraints(verticalConstraints)
+            self.addConstraints(
+                NSLayoutConstraint.constraints(
+                    withVisualFormat: "V:[title]-(5)-[subtitle]|",
+                    options: .directionLeadingToTrailing, metrics: nil, views: views)
+            )
+            self.layoutIfNeeded()
+        }
     }
     
     func createTitleView() {
